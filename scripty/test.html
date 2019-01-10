@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <!-- Easy JavaScript # 18 - Reading and Writing Form Element Values -->
+    <p>
+        Welcome to the 18th Easy JavaScript tutorial, part of <a href="http://www.easyprogramming.net">EasyProgramming.net</a>. We did a lot of reading and writing DOM elements, but they require things to be hard coded or require some programmatic handling
+        in order to allow you to do something with them.
+    </p>
+    <p>
+        In the real world, forms are the preferred way for user input. And with a little bit of JavaScript, you can even output values to form elements.
+    </p>
+    <p>
+        Let's take a look!
+    </p>
+
+    <label for="name">Name: </label><input id="name" type="text" /><br /><br />
+    <label for="city">City: </label><input id="city" type="text" /><br /><br />
+    <label for="custNum">Customer Number: </label><input id="custNum" type="text" /><br /><br />
+
+    <button id="submit">Submit</button>
+    <button id="capitalize">Capitalize Everything!</button>
+    <button id="clear">Clear</button>
+
+    <p>
+        Your Name is <span id="outputName">____</span>. The city in which you live is <span id="outputCity">____</span>.
+        <span id="outputCustNum">____</span>
+    </p>
+
+</body>
+<script>
+    var submit = document.getElementById("submit");
+    var capitalize = document.getElementById("capitalize");
+    var clear = document.getElementById("clear");
+
+    submit.onclick = function() {
+        var name = document.getElementById("name").value;
+        var city = document.getElementById("city").value;
+        var custNum = document.getElementById("custNum").value;
+
+        document.getElementById("outputName").innerText = name;
+        document.getElementById("outputCity").innerText = city;
+        document.getElementById("outputCustNum").innerText = custNum;
+
+    }
+
+    capitalize.onclick = function() {
+        var name = document.getElementById("name").value;
+        var city = document.getElementById("city").value;
+        var custNum = document.getElementById("custNum").value;
+
+
+        document.getElementById("name").value = name.toUpperCase();
+        document.getElementById("city").value = city.toUpperCase();
+        document.getElementById("custNum").value = custNum.toUpperCase();
+
+    }
+
+    clear.onclick = function() {
+        document.getElementById("name").value = "";
+        document.getElementById("city").value = "";
+        document.getElementById("custNum").value = "";
+
+    }
+</script>
+
+</html>
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<style>
+form * {
+  display: block;
+  margin: 10px;
+}
+</style>
+<script language="Javascript" >
+function download(filename, text) {
+  var pom = document.createElement('a');
+  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + 
+
+encodeURIComponent(text));
+  pom.setAttribute('download', filename);
+
+  pom.style.display = 'none';
+  document.body.appendChild(pom);
+
+  pom.click();
+
+  document.body.removeChild(pom);
+}
+</script>
+</head>
+<body>
+
+<form onsubmit="download(this['name'].value, this['text'].value)">
+  <input type="text" name="name" value="test.txt">
+  <textarea rows=3 cols=50 name="text">PLEASE WRITE ANSWER HERE. </textarea>
+<input type="radio" name="radio" value="Option 1" onclick="getElementById('problem').value=this.value;"> Option 1<br>
+<input type="radio" name="radio" value="Option 2" onclick="getElementById('problem').value=this.value;"> Option 2<br>
+<form onsubmit="download(this['name'].value, this['text'].value)">
+<input type="text" name="problem" id="problem">
+  <input type="submit" value="SAVE">
+</form>
+</body>
+</html> -->
