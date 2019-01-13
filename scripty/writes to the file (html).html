@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <!-- <SCRIPT LANGUAGE="VBScript">
+        Sub Window_onLoad
+        window.resizeTo 480, 150
+        End Sub
+    </SCRIPT> -->
+    <script language="javascript">
+        function Writedata() {
+            var fso = new ActiveXObject("Scripting.FileSystemObject");
+            var write_id;
+            write_id = document.getElementById('write_id').value;
+            alert('The data has been written to \n' + write_id);
+            var s = fso.CreateTextFile(write_id, true);
+
+            s.WriteLine(document.getElementById('name_id').value);
+
+            s.Close();
+        }
+    </script>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td>Input: </td>
+            <td><input type="text" name="name" value="" id="name_id"></td>
+            <td><select><option name="write" value="C:\Users\Rory\Desktop\D2Logger\scripty\test1.txt" id="write_id">Option1</option>    </select></td>
+            <td><input type="button" onclick="Writedata()" value="submit"></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
